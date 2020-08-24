@@ -1,0 +1,140 @@
+{% load static %}
+{% load i18n %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="Stylesheet" href="{% static "bootstrap.css" %}"/>
+        <title> Paegentry | Leaderboard </title>
+
+    </head>
+    <style>
+        p, .h5 {
+            font-family: Pristina;
+        }
+
+        .bg-dark{
+            color: aliceblue;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .image-wrapper{
+            width: 100px;
+            padding: 15px 0;
+            margin-top: -40px;
+            margin-left: auto;
+        }
+
+        @media (max-width: 330px){
+            .image-wrapper{
+                margin-left: 155px;
+            }
+        }
+
+        @media (min-width: 400px){
+            .image-wrapper{
+                
+            }
+        }
+
+        img{
+            width: 100px;
+            border-radius: 5px;
+            flex: right;
+        }
+
+        #vote{
+            margin-top: -50px;
+        }
+
+        .page{
+            font-size: 17px;
+            border-radius: 12px;
+            padding: .7em .8em;
+        }
+
+        #page1{
+            float: left;
+        }
+        #page2{
+            float: right
+        }
+
+        .page-box{
+            padding: 1em .5em;
+        }
+
+        span{
+            font-size: 20px;
+        }
+
+        #current{
+            background: blue;
+            color: white;
+            width: 1em;
+            padding: .5em .8em;
+            margin-left: 45%;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        #current:hover{
+            width: .5em;
+            padding: .25em .4em;
+
+        }
+
+        .contain{
+            margin: 0 1%;
+        }
+
+        #page{
+            width: 100vw;
+            background: red;
+            padding: 1.5em 0;
+        }
+
+    </style>
+    <body>
+
+        <a class="btn m-1 btn-secondary btn-sm" href="{% url 'index' %}"> Return Home </a>
+    <h6>{{profile.image.url}}</h6>
+        <div class="contain">
+            {% for profile in contestants %}
+            <div class="card-body bg-dark rounded m-3">
+                <div class="">
+                    <p class="h5"> {{profile.user.first_name}} {{profile.user.last_name}} </p>
+                    <div class="image-wrapper">
+                        <img src="{{profile.image.url}}" />
+                    </div>
+                    <p id="vote"> {{profile.votes}} vote{{profile.votes|pluralize}} 
+                    <a class="btn btn-sm btn-outline-warning" href="{% url 'contestant:vote' profile.user.username %}" > Goto vote Page </a>
+                    </p>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        <divclass="text-center">
+        
+        <span id="current"> {{page_obj.number}} </span> 
+        
+        </div>
+        <div class="page-box">
+            {% if page_obj.has_previous %}
+                <a class="page-link page" href="?page={{page_obj.previous_page_number}}" id="page1"> <span>&laquo;</span> prev </a>
+            {% endif %}
+
+
+
+            {% if page_obj.has_next %}
+                <a class="page-link page" href="?page={{page_obj.next_page_number}}" id="page2">next <span>&raquo;</span> </a>
+            {% endif %}
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title> Vote for - {{user.username | capfirst}} </title>
+<link rel="stylesheet" href="{% static 'bootstrap.css' %}"
+</head>
+
+<style>
+.btn {
+    padding: 1em 2.3em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+@media (min-width:730px){
+.contestant{
+    display: grid;
+    grid-template-columns : "image details";
+    grid-area-template: repeat(2, 50%);
+    padding: 1em 2em;
+}
+
+
+.details {
+    grid-area: details
+}
+
+}
+
+img{
+    width: 60vw;
+}
+
+@media (min-width: 730px){
+    img{
+        width: 40vw;
+    }
+}
+
+</style>
+
+<body>
+<br><br><br>
+<section class="contestant text-center ">
+<div class="image-box text-center" >
+<img src={{user.account.image.url}}/>
+
+<h2 class="text-center"> {{user.first_name}} {{user.last_name}} </h2>
+</div>
+
+{% if user.account.paid == True %}
+<form method="post" action="{% url 'contestant:voted' user.username %}">
+{% csrf_token %}
+<input type="submit" class='btn btn-outline-danger' value="Vote" />
+</form>
+</section>
+{{user.account.votes}}
+
+{% else %}
+<h2> This account hasn't been paid for! </h2>
+{% endif %}
+
+
+</body>
+</html>

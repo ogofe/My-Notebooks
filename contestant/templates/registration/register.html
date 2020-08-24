@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+
+<head>
+<link rel="Stylesheet" href="{% static 'bootstrap.css' %}"/>
+<link rel="Stylesheet" href="{% static 'register.css' %}"/>
+<title>Paegent | Registration </title>
+</head>
+
+<body>
+<div class="text-center">
+
+<div class="text-left bg-dark" id="box">
+{% if user.is_authenticated %}
+{% else %}
+Got an account? <a href="{% url 'contestant:login' %}"> Login</a> instead
+{% endif %}
+
+<form method="post">
+{% csrf_token %}
+
+{{form.as_p}}
+
+<input type="submit" class="btn btn-danger" value="Submit"/>
+</div>
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

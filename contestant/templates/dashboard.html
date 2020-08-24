@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, 
+initial-scale=1, user-scalable=no"/>
+<link rel="Stylesheet" href="{% static "bootstrap.css" %}"/>
+<link rel="Stylesheet" href="{% static "style.css" %}"/>
+{% block headtags %}
+<!-- replace with site specific styles and/or scripts -->
+{% endblock %}
+
+<title> Paegent | {{title}} </title>
+</head>
+
+<body>
+<nav class="navbar bg-dark">
+<h1 class="navbar-brand "> Dashboard </h1>
+<ul>
+<li style="padding-right: 20px;"><a href="{% url 'index' %}"> Home </a> </li>
+{% if user.account.phone == None %}
+<li><a href="{% url 'contestant:continue' %}"> Complete Profile </a> </li>
+{% endif %}
+
+<li><a href="{% url 'contestant:logout' %}"> Logout </a> </li>
+<li></li>
+<ul>
+</nav>
+<div class="text-center">
+<h1 class="text-center"> Welcome Back  {{ user.username|capfirst }}
+</div>
+<br>
+<section class="container text-center">
+<div id="image" class="text-center">
+{% if user.account.phone != None %}
+<img src={{user.account.image.url}} />
+
+{% endif %}
+<h3> {{user.first_name}} {{user.last_name}} </h3>
+<h5> {{user.email}} </h5>
+<h5> {{user.account.phone}} </h5>
+{% comment %} {% static '' %} {% endcomment %}
+{% if user.account.phone != None %}
+{% if user.account.paid == True %}
+<h3>{{user.account.votes}} vote{{user.account.votes|pluralize}}</h3>
+<h6> Your link :  <a href="{% url 'contestant:vote' user.username %}"> http://127.0.0.1:8000/contestant/votefor/{{user.username}} </a> </h6>
+{% else %}
+<h3> You have not paid your registration fee. <br>
+Please proceed to pay the sum of N3,000 to 0229821463 : GT Bank : Shedrack Bitrus
+<br>
+Then send evidence of your payment along with your full name, phone number and your desired picture to this number
+<a href="http://wa.me.com/08155514173">08155514173</a>
+{% comment %} <a href="mailto:weradiance@gmail.com">weradiance@gmail.com</a> {% endcomment %}
+
+</h3>
+{% endif %}
+{% endif %}
+</h1>
+</div>
+ </section>
+</body>
+</html>

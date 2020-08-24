@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, 
+initial-scale=1, user-scalable=no"/>
+<link rel="Stylesheet" href="{% static "bootstrap.css" %}"/>
+<link rel="Stylesheet" href="{% static "style.css" %}"/>
+{% block headtags %}
+<!-- replace with site specific styles and/or scripts -->
+{% endblock %}
+
+<title> Paegent | {{title}} </title>
+</head>
+
+<body>
+<nav class="navbar bg-dark">
+<h1 class="navbar-brand "> Paegent </h1>
+<div class="nav">
+<ul>
+<li><a href="{% url 'index' %}"> Home </a> </li>
+<ul>
+</div>
+
+</nav>
+
+</body>
+
+</html>

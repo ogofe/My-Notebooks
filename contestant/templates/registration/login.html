@@ -1,0 +1,69 @@
+{% load static %}
+<html>
+
+<head>
+<link rel="Stylesheet" href="{% static 'bootstrap.css' %}"/>
+<title> Paegent | Login </title>
+</head>
+
+<style>
+
+#container{
+    margin-top: 10vh;
+    font-family: Helvetica;
+}
+
+input[type=text], input[type=password]{
+    display: block;
+    width: 100%;
+    border-radius: 7px;
+    margin-top: 15px;
+    padding: 7px 5px;
+    margin-bottom: 15px;
+}
+
+h4{
+    margin-left: 20%;
+    padding-bottom: .5em;
+    font-family: Consolas;
+}
+
+.bg-dark{
+    color: white;
+}
+
+#box{
+    padding: 1em 1.4em;
+    background: burnlywood;
+}
+
+#box .btn{
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+@media screen and (min-width: 500px){
+    #box{
+        width: 320px;
+    }
+
+    #container{
+        margin: 10vh 30vw;
+    }
+}
+</style>
+
+<body class="bg-dark">
+<div class="text-center container" id='container'>
+<div class="text-left border rounded" id="box">
+<h4> Please Log In </h4>
+<form method="post">
+{% csrf_token %}
+<h5> Username: </h5> {{form.username}}
+<h5> Password: </h5> {{form.password}}
+<input type="submit" class="btn btn-outline-danger" value="Login"/>
+</form>
+No Account Yet? <a href="{% url 'contestant:register' %}" > Register </a>
+</body>
+</html>

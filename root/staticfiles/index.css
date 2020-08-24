@@ -1,0 +1,204 @@
+.navbar {
+    max-height: 70px;
+    padding-top: 0;
+}
+
+.hero-bg {
+    background: rgb(252, 215, 171) url('../static/background.jpg') repeat-x;
+    color: orangered;
+    padding-bottom: 1.5em;
+}
+
+.hero-bg ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/* .hero-bg ul li{
+    padding-left: 15px;
+} */
+
+
+/* 
+@media (max-width:730px) {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    margin-top: 0;
+} */
+
+.jumbo {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0px;
+    margin-top: 2.7em;
+    color: teal;
+    padding-bottom: 1em;
+    /* border: 1px solid teal; */
+    border-bottom: 3px solid teal;
+    border-top: 3px solid teal;
+}
+
+.navbar-brand {
+    padding-top: -15px;
+    margin-top: -15px;
+    z-index: 1;
+    font-size: 2em;
+    margin-top: 3em;
+    margin-left: 1em;
+}
+
+.chip {
+    border-radius: 30px;
+    background-color: teal;
+    color: brown;
+    width: 10em;
+    height: 2.5em;
+    padding-left: 0px;
+    margin-left: 1.5em;
+    font-weight: bold;
+    font-family: ArialRounded;
+}
+
+.chip img {
+    width: 40px;
+    border-radius: 40px;
+    padding: 0 0;
+    height: 100%;
+    margin-right: 5px;
+}
+
+.bg-dark {
+    color: aliceblue;
+    background: linear-gradient(90deg, rgb(252, 215, 171));
+}
+
+@media screen and (min-width: 750px) {
+    #toggle {
+        display: none;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+ul li a {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: tomato
+}
+
+.bg {
+    background-color: rgb(252, 215, 171);
+    margin: 0;
+    padding: 1em 0;
+    color: rgb(228, 7, 49);
+    font-family: Pristina;
+}
+
+.bg ul {
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+.bg li {
+    padding: .71em 0;
+}
+
+ul li a:hover {
+    text-decoration: none;
+    color: forestgreen;
+}
+
+#help {
+    padding: .7px;
+    font-size: large;
+    font-size: 40px;
+    margin-bottom: -10px;
+    z-index: 1;
+}
+
+.line {
+    width: 8.5em;
+    background-color: cadetblue;
+    height: .2em;
+    margin-left: 10vw;
+    margin-bottom: 1.5em;
+    margin-top: -.27em;
+    z-index: 0;
+}
+
+.badge {
+    color: aliceblue;
+    background: linear-gradient(90deg, rgb(252, 215, 171) 50%, rgb(192, 110, 17) 100%, );
+}
+
+
+/* #guide ul {
+    list-style-type: '.';
+} */
+
+.badge-dark {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.badge-dark li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn {
+    padding: .7em 1.5em;
+    font-weight: bold;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+    background-color: teal;
+    height: .1em;
+}
+
+footer {
+    padding: 2em .7em;
+}
+
+footer h4 {
+    padding-bottom: 1em;
+}
+
+footer img {
+    width: 32px;
+}
+
+.watermark {
+    color: whitesmoke;
+}
+
+#msg {
+    transition: 3s;
+    animation: drop 3s forwards;
+}
+
+@keyframes drop {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}

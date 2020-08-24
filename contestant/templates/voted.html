@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title> Radiance | Voter </title>
+</head>
+<style>
+div{
+    background-color: tomato;
+    color: aliceblue;
+    border-radius: 7px;
+    padding: 2em 2em;
+    margin-top: 30vw;
+    align-content: center;
+}
+</style>
+<body>
+<div align="center" onload="redirect()">
+<h4>
+Thanks for voting for me!
+</h4>
+</div>
+<script src="{% static 'redirect.js' %}">
+</script>
+
+</body>
+</html>
