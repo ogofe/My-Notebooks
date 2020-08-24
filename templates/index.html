@@ -1,0 +1,142 @@
+{% load staticfiles %} 
+{% load i18n %}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="Stylesheet" href="{% static 'bootstrap.css' %}"/>
+<link rel="Stylesheet" href="{% static 'index.css' %}"/>
+<title> Paegentry | {{title}} </title>
+</head>
+
+<body>
+{% if messages %}
+    {% for message in messages %}
+    <div id="msg" class="bg-danger text-center p-3 text-light"> {{message}} <button class="close" onclick="
+        document.getElementById('msg').style.display = 'none';
+    
+    "> &times; </button>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<section class="hero-bg">
+<h1 class="navbar-brand "> Radiance | {{title}} </h1>
+
+<ul class="m-2">
+<li class="m-1">
+{% if user.is_authenticated %}
+<a href="{% url 'contestant:dashboard' %}">
+<div class="chip">
+<img src="{% static 'person.png' %}"/> {{user.username|capfirst}}
+</div>
+</a>
+{% else %}
+<a href="{% url 'contestant:register' %}"> Register </a>   
+<a href="{% url 'contestant:login' %}" >Login</a></li>
+{% endif %}
+
+</ul>
+
+<div class="jumbo " id="jumbo">
+<h2 class="h2">
+Welcome to Radiance Paegentry 2020!
+</h2>
+<p class="h6">
+We are glad to announce the begining of the annual Radiance Paegentry with season 1.<br/> 
+Proudly brought to you by Radiant Ent. We propose a platform to connect the model and scouting oppurtunities in an attempt to empower African Beauty. <br/>
+Become a part of the Radiant Movement by  becoming a contestant on this online experience.<br/> 
+All contestant are required to register and pay for their profile, the fee is N2,500.00 only.<br/>
+Good Luck.<br/><br>
+<a class="btn btn-outline-danger" href="{% url 'contestant:register' %}"> Register Here </a>
+</p>
+</div>
+
+</section>
+
+<section id="guide">
+<div class="badge-dark">
+<h2 id="help" class="text-center">Guidelines
+<div class="text-center line"> </div>
+</h2>
+
+<h3 class="text-center ">
+To become a contestant follow the guidelines given below
+</h3>
+<p class="h5">
+<ol >
+<li> Complete the <a href="{% url 'contestant:register' %}">registration</a> form to this format
+    <ul>
+        <li> First Name </li>
+        <li> Last Name </li>
+        <li> Username </li>
+        <li> Your Email address </li>
+        <li> Your password </li>
+    </ul>
+</li>
+
+<li> Follow the instructions in your dashboard </li>
+<li> Your link will be visible in your <a href="{% url 'contestant:dashboard' %}">dashboard </a>after 24hours payment confirmation </li>
+<li> Share your link to friends and tell them to vote for you</li>
+</ol>
+</p>
+</div>
+</section>
+
+<section id="info" class="bg">
+<h3 class="text-center"> Good To Know </h3>
+<ul >
+<li><h5> Voting is Free </h5></li>
+<li><h5> <b>N</b>200,000  Grand Prize  <span class="h6"> + 1 year Modelling contract </span></h5></li>
+<li><h5> Only paid contestants get a voting link </h5></li>
+<li><h5> Voters can only vote once per contestant </h5></li>
+<li><h5> Updates will be communicated to your Emails and our social media platforms </h5></li>
+<h4> More Info: </h4>
+<li><h5> Top 10 Runner ups will receive a complementary make-up kit <span class="h6">+ A chance to be scouted </span> </h5></li>
+<li><h5> Updates will be communicated to your Emails and our social media pages </h5></li>
+</ul>
+</section>
+
+<footer class="container-fluid bg-dark">
+
+<h4>
+Social Links
+</h4>
+<div class="row">
+<a class="col" href="http://m.instagram.com/" > <img class="social" src="{% static 'instagram.png' %}" />
+<br>Radiance
+</a>
+<a class="col" href="http://m.facebook.com/weradiance" > <img class="social" src="{% static 'facebook.png' %}" />
+<br>Radiance 
+</a>
+</div>
+<div class="text-center">
+<br>
+<h6 class="watermark">
+ All Rights Reserved<br>
+&copy; 2020 @Radiance 
+</h6>
+</div>
+
+</footer>
+
+</body>
+
+<script>
+    function changeColor(){
+        let jumbo = document.getElementById('jumbo')
+        colors = new Array() (
+            'tomato',
+            'teal',
+            'yellow')
+        for (let i = 0; i < colors.length; i++) {
+            jumbo.style.paddingBottom = `3px dashed ${colors[i]}`
+            jumbo.style.paddingTop = '3px dashed orange'
+        }
+        
+    }
+    setInterval(
+    nextSlide, 2000
+)
+</script>
+</html>
